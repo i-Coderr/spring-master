@@ -1,12 +1,22 @@
 package ch.sh.springmaster.customer;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Service
+import java.util.List;
+
+@Component
 public class CustomerService {
 
-    Customer getCustomer(){
-        return new Customer(1L, "Chyngyz Sharshekeev");
+    private final CustomerRepo customerRepo;
+
+    @Autowired
+    public CustomerService(CustomerRepo customerRepo) {
+        this.customerRepo = customerRepo;
+    }
+
+    List<Customer> getCustomers(){
+        return customerRepo.getCustomers();
     }
 
 }
