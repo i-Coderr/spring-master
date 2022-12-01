@@ -17,28 +17,35 @@ public class CustomerControllerV2 {
         this.service = service;
     }
 
-    @GetMapping(value = "all")
-    List<Customer> getCustomers(){
-        return Collections.singletonList(
-                new Customer(0L, "V2", "V2" )
-        );
+    @GetMapping
+    List<Customer> getCustomers() {
+        return service.getCustomers();
+    }
+
+    @GetMapping(path = "{customerId}")
+    Customer getCustomer(@PathVariable("customerId") Long id) {
+        return service.getCustomers()
+                .stream()
+                .filter(customer -> customer.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Customer not found"));
     }
 
     @PostMapping
-    void createNewCustomer(@RequestBody Customer customer){
+    void createNewCustomer(@RequestBody Customer customer) {
         System.out.println("POST REQUEST...");
         System.out.println(customer);
     }
 
     @PutMapping
-    void updateCustomer(@RequestBody Customer customer){
+    void updateCustomer(@RequestBody Customer customer) {
         System.out.println("UPDATE REQUEST...");
         System.out.println(customer);
     }
 
     @DeleteMapping(path = "{customerId}")
-    void deleteCustomer(@PathVariable("customerId") Long id){
-        System.out.println("DELETE REQUEST FOR CUSTOMER WITH ID " + id );
+    void deleteCustomer(@PathVariable("customerId") Long id) {
+        System.out.println("DELETE REQUEST FOR CUSTOMER WITH ID " + id);
     }
 
 }
