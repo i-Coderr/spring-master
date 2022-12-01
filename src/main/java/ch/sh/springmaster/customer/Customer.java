@@ -3,6 +3,7 @@ package ch.sh.springmaster.customer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 public class Customer {
@@ -16,6 +17,7 @@ public class Customer {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
+    @Email
     private final String email;
 
     Customer(Long id, String name, String password, String email) {
