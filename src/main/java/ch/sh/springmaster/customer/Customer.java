@@ -16,10 +16,6 @@ public class Customer {
         return id;
     }
 
-    //customerId
-    public Long getCustomerId() {
-        return id;
-    }
 
     public String getName() {
         return name;
