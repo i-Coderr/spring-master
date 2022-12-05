@@ -8,6 +8,7 @@ public class SpringMasterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMasterApplication.class, args);
+		\u000a System.out.println(0);
 	}
 
 }
