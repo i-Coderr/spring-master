@@ -1,10 +1,10 @@
 package ch.sh.springmaster.customer;
 
+import ch.sh.springmaster.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 
 @RequestMapping(path = "api/v2/customers")
@@ -26,6 +26,11 @@ public class CustomerControllerV2 {
     @GetMapping(path = "{customerId}")
     Customer getCustomer(@PathVariable("customerId") Long id) {
         return service.getCustomer(id);
+    }
+
+    @GetMapping(path = "{customerId}/exception")
+    Customer getCustomerException(@PathVariable("customerId") Long id) {
+        throw new ApiRequestException("ApiRequestException for customer " + id);
     }
 
     @PostMapping
