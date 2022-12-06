@@ -14,24 +14,28 @@ import javax.validation.constraints.NotBlank;
 public class Customer {
 
     @Id
-    private final Long id;
+    private Long id;
 
     @NotBlank(message = "name must be not empty")
-    private final String name;
+    private String name;
 
     @NotBlank(message = "password must be not empty")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private final String password;
+    private String password;
 
     @NotBlank(message = "email must be not empty")
     @Email
-    private final String email;
+    private String email;
 
     Customer(Long id, String name, String password, String email) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+    }
+
+    public Customer() {
+
     }
 
     @JsonProperty("customer_id")
