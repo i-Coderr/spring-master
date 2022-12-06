@@ -21,11 +21,8 @@ public class CustomerService {
     }
 
     Customer getCustomer(Long id) {
-        return getCustomers()
-                .stream()
-                .filter(customer -> customer.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Customer with id " + id + " not found"));
+        return customerRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("Customer with id " + id + " not found"));
     }
 
 }
