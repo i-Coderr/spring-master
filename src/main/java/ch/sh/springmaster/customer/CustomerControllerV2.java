@@ -1,7 +1,7 @@
 package ch.sh.springmaster.customer;
 
 import ch.sh.springmaster.exception.ApiRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -9,14 +9,10 @@ import java.util.List;
 
 @RequestMapping(path = "api/v2/customers")
 @RestController
+@AllArgsConstructor
 public class CustomerControllerV2 {
 
     private final CustomerService service;
-
-    @Autowired
-    public CustomerControllerV2(CustomerService service) {
-        this.service = service;
-    }
 
     @GetMapping
     List<Customer> getCustomers() {
