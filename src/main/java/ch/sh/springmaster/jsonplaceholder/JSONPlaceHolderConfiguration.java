@@ -1,4 +1,4 @@
-package ch.sh.springmaster.jsonplaceholder4;
+package ch.sh.springmaster.jsonplaceholder;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

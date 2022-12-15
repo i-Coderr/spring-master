@@ -1,4 +1,4 @@
-package ch.sh.springmaster.jsonplaceholder4;
+package ch.sh.springmaster.jsonplaceholder;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
