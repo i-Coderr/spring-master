@@ -1,4 +1,4 @@
-package ch.sh.springmaster.jsonplaceholder4;
+package ch.sh.springmaster.jsonplaceholder;
 
 import lombok.Data;
 
